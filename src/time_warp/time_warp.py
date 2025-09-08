@@ -44,14 +44,11 @@ def main():
     
     # Print to user
     printZones(printList, date_to_play, zones)
-    # try:
-    #     printZones(printList, date_to_play, zones)
-    # except:
-    #     print("Invalid input to date. Please try again.")
+
 
 
 # Helper methods
-def searchTimeZone(zoneStr) -> str:
+def searchTimeZone(zoneStr):
     """Helper method to search library for time zones data."""
     for zone in available_timezones():
         if zoneStr in zone:
