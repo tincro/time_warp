@@ -130,6 +130,7 @@ def newDate(day, hour, minute, year=None, month=None) -> datetime:
         return datetime(year, month, day, hour, minute)
     except ValueError as e:
         print(e, "Please try again.")
+        return datetime(0,0,0)
 
 
 def timeZone(date: datetime, timezone: ZoneInfo) -> str:
@@ -139,9 +140,10 @@ def timeZone(date: datetime, timezone: ZoneInfo) -> str:
         return date.astimezone(timezone).strftime(FORMAT)
     except(AttributeError) as e:
         print("Invalid formatting in date/time input.")
+        return ""
 
 
-def printZones(zoneList: list[datetime], dateObj: datetime, zoneDict: dict):
+def printZones(zoneList: list[str], dateObj: datetime, zoneDict: dict):
     """Print the zone in the list."""
     for item in zoneList:
         zoneStr = timeZone(dateObj, zoneDict[item])
