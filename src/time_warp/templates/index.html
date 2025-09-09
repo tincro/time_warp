@@ -10,5 +10,8 @@
 
       {% block main %}
         <p>Enter the time to play below for a list of time zones!</p>
-            
        {% endblock main %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock footer %}
