@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=initial-width, scale=1.0">
-        <title>Time Warp</title>
-    </head>
-    <body>
-        <header>
-            <h1>Time Warp</h1>
-        </header>
+{% extends "layout.html" %}
+
+{% block title %}
+    Time Warp | Welcome!
+{% endblock title %}
+
+{% block header %}
+    Time Warp
+{% endblock header %}
+
+      {% block main %}
         <p>Enter the time to play below for a list of time zones!</p>
             
-        <footer>
-            <p>Copyright 2025 Austin Cronin</p>
-        </footer>
-    </body>
-</html>
+       {% endblock main %}
