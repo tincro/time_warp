@@ -9,7 +9,31 @@
 {% endblock header %}
 
       {% block main %}
-        <p>Enter the time to play below for a list of time zones!</p>
+        <div class="main-content center">
+          <p>
+            Struggling to keep track of different time zones to play games with your friends that live all over the world? 
+          </p>
+          <p>Enter the time to play below for a list of time zones that are all coordinated!</p>
+        </div>
+        <div class="form-container center">
+
+            <form>
+                <div class="input-container">
+
+                    <label for="date-to-play">Day</label>
+                    <input name="date-to-play" type="date">
+                </div>
+                <div class="input-container">
+
+                    <label for="time-to-play">Time</label>
+                    <input name="time-to-play" type="time">
+                </div>
+                <button class="btn" type="submit">Get time zones</button>
+
+            </form>
+        </div>
+
+          
        {% endblock main %}
 
 {% block footer %}
