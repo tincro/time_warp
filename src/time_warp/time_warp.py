@@ -81,28 +81,28 @@ def getTimeToPlay():
     print("What day are we playing?: -->")
     play = {}
 
-    play.update({"day": getDay()})
-    play.update({"hour": getHour()})
-    play.update({"minute": getMinute()})
+    play.update({"day": getDayFromUser()})
+    play.update({"hour": getHourFromUser()})
+    play.update({"minute": getMinuteFromUser()})
     
     return play
     
 
-def getDay():
+def getDayFromUser():
     """Get day from user."""
     msg = "Enter day of month to play: "
     day = input(msg)
     return int(day)
 
 
-def getHour():
+def getHourFromUser():
     """Get Hour from user."""
     msg = "Enter hour of day to play: "
     hour = input(msg)
     return int(hour)
 
 
-def getMinute():
+def getMinuteFromUser():
     """Get minute from user."""
     msg = "Enter minute of hour, if any. If none press Enter: "
     minute = input(msg)
@@ -111,6 +111,52 @@ def getMinute():
     else:
         minute = int(minute)
     return minute
+
+
+def getDateFromStr(dateStr):
+    """return date dict from given stting."""
+    date_dict = {}
+    date = datetime.fromisoformat(dateStr)
+    date_dict.update({'day': date.day, 'month': date.month, 'year': date.year})
+    return date_dict
+
+
+def getYearFromStr(dateStr) -> int|None:
+    """Return day substring from given string."""
+    try:
+        date = datetime.fromisoformat(dateStr)
+        return date.year
+    except:
+        print("Not supported date string format.")
+
+
+def getMonthFromStr(dateStr) -> int|None:
+    """Return day substring from given string."""
+    try:
+        date = datetime.fromisoformat(dateStr)
+        return date.month
+    except:
+        print("Not supported date string format.")
+
+
+def getDayFromStr(dateStr) -> int|None:
+    """Return day substring from given string."""
+    try:
+        date = datetime.fromisoformat(dateStr)
+        return date.day
+    except:
+        print("Not supported date string format.")
+
+
+def getTimeFromStr(timeStr) -> dict:
+    """Return dictionary of time from given string."""
+    time_dict = {}
+
+    time = timeStr.split(":")
+    time_dict.update({'hour': int(time[0]), 'minute': int(time[1])})
+
+    return time_dict
+
 
 
 def getDate(info: dict) -> datetime:
@@ -159,11 +205,12 @@ def printZones(zoneList: list[str], dateObj: datetime, zoneDict: dict):
                 print("No Time Zone Info Found.")
 
 
-def getZones(zoneList: list[str], dateObj: datetime, zoneDict: dict) -> dict:
+def getZones(zoneList: list[str], dateObj: datetime) -> dict:
     """Return a dictionary holding the results of the required time zone translation."""
+    zones = zoneBuilder(ZONES_INFO)
     results = {}
     for zone in zoneList:
-        results.update({zone: timeZone(dateObj, zoneDict[zone])})
+        results.update({zone: timeZone(dateObj, zones[zone])})
 
     return results
 

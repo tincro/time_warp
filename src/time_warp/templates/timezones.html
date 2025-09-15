@@ -15,6 +15,10 @@
         <p><strong>Day: </strong> {{ play.date }}</p>
         <p><strong>Time: </strong> {{ play.time }}</p>
     </div>
+    {% for k,v in zones.items() %}
+        <p>{{ k }}: {{ v }}</p>
+    {% endfor %}
+
 {% endblock main %}
 
 {% block footer %}

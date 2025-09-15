@@ -1,4 +1,5 @@
 from flask import Flask, redirect, render_template, request
+import time_warp
 
 app = Flask(__name__)
 
@@ -14,8 +15,17 @@ def timezones():
             'date': request.form.get('date'),
             'time': request.form.get('time')
             }
+        date_dict = time_warp.getDateFromStr(play_dict.get('date'))
+        time_dict = time_warp.getTimeFromStr(play_dict.get('time'))
 
-        return render_template("timezones.html", play=play_dict)
+        play_data = date_dict | time_dict
+        date = time_warp.getDate(play_data)
+
+        zoneList = ["Montreal", "Vancouver", "Adelaide"]
+        zones = time_warp.getZones(zoneList, date)
+
+
+        return render_template("timezones.html", play=play_dict, zones=zones)
     else:
          return render_template("/timezones.html")
     
