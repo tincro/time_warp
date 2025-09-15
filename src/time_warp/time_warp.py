@@ -158,6 +158,15 @@ def printZones(zoneList: list[str], dateObj: datetime, zoneDict: dict):
             except KeyError:
                 print("No Time Zone Info Found.")
 
+
+def getZones(zoneList: list[str], dateObj: datetime, zoneDict: dict) -> dict:
+    """Return a dictionary holding the results of the required time zone translation."""
+    results = {}
+    for zone in zoneList:
+        results.update({zone: timeZone(dateObj, zoneDict[zone])})
+
+    return results
+
 # Run the script
 if __name__ == "__main__":
     main()

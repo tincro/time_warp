@@ -2,9 +2,21 @@ from flask import Flask, redirect, render_template, request
 
 app = Flask(__name__)
 
-@app.route("/", methods=['GET', 'POST'])
+
+@app.route("/")
 def index():
-    if request.method == 'POST':
-        return redirect("/timezones")
-    else:
         return render_template("index.html")
+
+@app.route("/timezones.html", methods=['GET', 'POST'])
+def timezones():
+    if request.method == 'POST':
+        play_dict = {
+            'date': request.form.get('date'),
+            'time': request.form.get('time')
+            }
+
+        return render_template("timezones.html", play=play_dict)
+    else:
+         return render_template("/timezones.html")
+    
+
