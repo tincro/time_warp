@@ -6,13 +6,13 @@ NYC = 'America/New_York'
 VANCOUVER = 'America/Vancouver'
 ADELAIDE = 'Australia/Adelaide'
 MELBOURNE = 'Australia/Melbourne'
-TELL_CITY = 'America/Indiana/Tell_City'
 MONTREAL = 'America/Montreal'
+CHICAGO = 'America/Chicago'
 
 ZONES_INFO = (
     NYC,
     INDY,
-    TELL_CITY,
+    CHICAGO,
     MONTREAL,
     VANCOUVER,
     MELBOURNE,
@@ -21,12 +21,12 @@ ZONES_INFO = (
 
 APP_ZONES = [
         "Indianapolis",
+        "Chicago",
         "Montreal",
         "NYC",
         "Adelaide",
         "Melbourne",
-        "Vancouver",
-        "Tell City"
+        "Vancouver"
     ]
 
 FORMAT = "%a %X %p %Z"
@@ -44,7 +44,6 @@ def main():
     
     # Print to user
     printZones(printList, date_to_play, zones)
-
 
 
 # Helper methods
