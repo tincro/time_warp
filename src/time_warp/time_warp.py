@@ -216,6 +216,12 @@ def printZones(zoneList: list[str], dateObj: datetime, zoneDict: dict):
                 print("No Time Zone Info Found.")
 
 
+def getSupportedZones():
+    """Return sorted list of supported time zones."""
+    copy = APP_ZONES.copy()
+    return sorted(copy)
+
+
 def getZones(zoneList: list[str], dateObj: datetime) -> dict:
     """Return a dictionary holding the results of the required time zone translation."""
     zones = zoneBuilder(ZONES_INFO)
