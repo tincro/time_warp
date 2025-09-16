@@ -69,13 +69,15 @@ p {
 }
 
 .btn {
-    background-color: cornflowerblue;
+    background-color: steelblue;
     color: aliceblue;
     display: block;
     margin-top: 20px; 
     max-width: 300px;
     padding: 7px 10px;
     text-align: center;
+    border: none;
+    border-radius: 3px;
 }
 
 .form-container, .results-container {
@@ -103,7 +105,6 @@ p {
 
 .location {
     color: crimson;
-    font-size: 1.3rem;
     font-weight: 800;
     text-transform: uppercase;
 }
@@ -128,7 +129,7 @@ p {
     margin: 3rem auto;
 }
 .proposed-container h2 {
-    color: steelblue;
+    color: steelblue    ;
 }
 
 .results-container {
