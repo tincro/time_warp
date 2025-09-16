@@ -33,25 +33,28 @@ FORMAT = "%a %X %p %Z"
 
 
 def main():
-    # Dictionary to hold zones info
-    zones = zoneBuilder(ZONES_INFO)
+    print(searchTimeZone('Mexico'))
+    # # Dictionary to hold zones info
+    # zones = zoneBuilder(ZONES_INFO)
 
-    # Gather user input
-    time_to_play = getTimeToPlay()
-    date_to_play = getDate(time_to_play)
+    # # Gather user input
+    # time_to_play = getTimeToPlay()
+    # date_to_play = getDate(time_to_play)
 
-    printList = ["Montreal", "Vancouver", "Adelaide"]
+    # printList = ["Montreal", "Vancouver", "Adelaide"]
     
-    # Print to user
-    printZones(printList, date_to_play, zones)
+    # # Print to user
+    # printZones(printList, date_to_play, zones)
 
 
 # Helper methods
-def searchTimeZone(zoneStr):
-    """Helper method to search library for time zones data."""
+def searchTimeZone(zoneStr) -> list[str]:
+    """Helper method to search library for time zones data. Returns string if found otherwise None."""
+    zone_list = []
     for zone in available_timezones():
         if zoneStr in zone:
-            print(zone)      
+            zone_list.append(zone)
+    return zone_list
 
 
 def zoneBuilder(list) -> dict:
