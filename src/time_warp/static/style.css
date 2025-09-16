@@ -33,12 +33,12 @@ form {
     width: 50%;
 }
 
-input {
+/* input {
     display: block;
     margin-top: 3px;
     padding: 7px;
     width: 100%;    
-}
+} */
 
 legend {
     font-weight: 600;
@@ -83,6 +83,13 @@ p {
     margin-top: 0px;
 }
 
+.input-container input {
+    display: block;
+    margin-top: 3px;
+    padding: 7px;
+    width: 100%;    
+}
+
 .location {
     text-transform: uppercase;
     font-weight: 800;
@@ -120,4 +127,12 @@ p {
 
 .results-item:last-child {
     border-bottom: none;
+}
+
+.search-container {
+    margin-bottom: 30px;
+}
+
+.search-container input[] {
+    padding: 20px;
 }
