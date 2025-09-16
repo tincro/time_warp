@@ -25,12 +25,17 @@ fieldset {
 }
 
 footer {
+    font-size: x-small;
     text-align: center;
 }
 
 form {
     margin: 0 auto;
     width: 50%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: crimson;
 }
 
 /* input {
@@ -97,8 +102,10 @@ p {
 }
 
 .location {
-    text-transform: uppercase;
+    color: crimson;
+    font-size: 1.3rem;
     font-weight: 800;
+    text-transform: uppercase;
 }
 
 .loc-item input, .loc-item label {
@@ -120,6 +127,9 @@ p {
 .proposed-container {
     margin: 3rem auto;
 }
+.proposed-container h2 {
+    color: steelblue;
+}
 
 .results-container {
     display: flex;
@@ -136,6 +146,11 @@ p {
 
 .results-item:last-child {
     border-bottom: none;
+}
+
+.results-item p {
+    margin: 0 0;
+    padding: 3px 0  ;
 }
 
 .search-container {
