@@ -10,14 +10,20 @@
 
 {% block main %}
     <p>Below you will find the relative time and date in each time zone based on the respective date and time provided from the form.</p>
-    <div>
-        <h2>Time and Date Entered:</h2>
+    <div class="proposed-container">
+        <h2>Proposed Game Time:</h2>
         <p><strong>Day: </strong> {{ play.date }}</p>
         <p><strong>Time: </strong> {{ play.time }}</p>
     </div>
-    {% for k,v in zones.items() %}
-        <p>{{ k }}: {{ v }}</p>
-    {% endfor %}
+    <div class="results-container">
+        {% for k,v in zones.items() %}
+        <div class="results-item">
+            <p class="location">{{ k }}</p>
+            <p class="game-time">{{ v }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <p>{{ loc }}</p>
 
 {% endblock main %}
 

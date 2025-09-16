@@ -113,11 +113,17 @@ def getMinuteFromUser():
     return minute
 
 
-def getDateFromStr(dateStr):
+def getDateFromStr(dateStr) -> dict:
     """return date dict from given stting."""
     date_dict = {}
-    date = datetime.fromisoformat(dateStr)
-    date_dict.update({'day': date.day, 'month': date.month, 'year': date.year})
+    if dateStr is None:
+        return date_dict
+    
+    try:
+        date = datetime.fromisoformat(dateStr)
+        date_dict.update({'day': date.day, 'month': date.month, 'year': date.year})
+    except:
+        print("Missing date format.")
     return date_dict
 
 
@@ -152,8 +158,15 @@ def getTimeFromStr(timeStr) -> dict:
     """Return dictionary of time from given string."""
     time_dict = {}
 
+    if timeStr is None:
+        return time_dict
+    
+
     time = timeStr.split(":")
-    time_dict.update({'hour': int(time[0]), 'minute': int(time[1])})
+    try:
+        time_dict.update({'hour': int(time[0]), 'minute': int(time[1])})
+    except:
+        print("Missing format on time string.")
 
     return time_dict
 

@@ -19,14 +19,40 @@
 
             <form action="timezones.html" method="post" target="_blank">
                 <div class="input-container">
+                <fieldset>
+                    <legend>Time Zones</legend>
+                    <div class="loc-item">
 
-                    <label for="date">Day</label>
-                    <input id="date" name="date" type="date" value="">
+                        <input id="loc-montreal" name="loc-montreal" type="checkbox" value="Montreal">
+                        <label for="loc-montreal">Montreal</label>
+                    </div>
+                    <div class="loc-item">
+
+                        <input id="loc-vancouver" name="loc-vancouver" type="checkbox" value="Vancouver">
+                        <label for="loc-vancouver">Vancouver</label>
+                    </div>
+                    <div class="loc-item">
+
+                        <input id="loc-adelaide" name="loc-adelaide" type="checkbox" value="Adelaide">
+                        <label for="loc-adelaide">Adelaide</label>
+                    </div>
+                    <div class="loc-item">
+
+                        <input id="loc-nyc" name="loc-nyc" type="checkbox" value="New York">
+                        <label for="loc-nyc">New York City</label>
+                    </div>
+                </fieldset>
                 </div>
+
+                <div class="input-container">
+                    <label for="date">Day</label>
+                    <input id="date" name="date" type="date" value="" required>
+                </div>
+
                 <div class="input-container">
 
                     <label for="time">Time</label>
-                    <input id="time" name="time" type="time">
+                    <input id="time" name="time" type="time" required>
                 </div>
                 <button class="btn" type="submit">Get time zones</button>
 
