@@ -33,18 +33,17 @@ FORMAT = "%a %X %p %Z"
 
 
 def main():
-    print(searchTimeZone('Mexico'))
-    # # Dictionary to hold zones info
-    # zones = zoneBuilder(ZONES_INFO)
+    # Dictionary to hold zones info
+    zones = zoneBuilder(ZONES_INFO)
 
-    # # Gather user input
-    # time_to_play = getTimeToPlay()
-    # date_to_play = getDate(time_to_play)
+    # Gather user input
+    time_to_play = getTimeToPlay()
+    date_to_play = getDate(time_to_play)
 
-    # printList = ["Montreal", "Vancouver", "Adelaide"]
+    printList = ["Montreal", "Vancouver", "Adelaide"]
     
-    # # Print to user
-    # printZones(printList, date_to_play, zones)
+    # Print to user
+    printZones(printList, date_to_play, zones)
 
 
 # Helper methods

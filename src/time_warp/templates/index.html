@@ -21,27 +21,6 @@
                 <div class="input-container">
                 <fieldset>
                     <legend>Time Zones</legend>
-                    <!-- <div class="loc-item">
-
-                        <input id="loc-montreal" name="loc-montreal" type="checkbox" value="Montreal">
-                        <label for="loc-montreal">Montreal</label>
-                    </div>
-                    <div class="loc-item">
-
-                        <input id="loc-vancouver" name="loc-vancouver" type="checkbox" value="Vancouver">
-                        <label for="loc-vancouver">Vancouver</label>
-                    </div>
-                    <div class="loc-item">
-
-                        <input id="loc-adelaide" name="loc-adelaide" type="checkbox" value="Adelaide">
-                        <label for="loc-adelaide">Adelaide</label>
-                    </div>
-                    <div class="loc-item">
-
-                        <input id="loc-nyc" name="loc-nyc" type="checkbox" value="New York">
-                        <label for="loc-nyc">New York City</label>
-                    </div> -->
-
                     {% for zone in zones %}
                         <div class="loc-item">
                             <input id="loc-{{ zone | lower }}" name="loc-{{ zone | lower }}" type="checkbox" value="{{ zone }}">
