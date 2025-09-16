@@ -74,7 +74,7 @@ p {
     padding: 20px 0;
 }
 
-.input-container, .proposed-container {
+.input-container {
     margin-top: 20px;
 }
 
@@ -98,6 +98,10 @@ p {
 
 .page-title, .location, .game-time {
     text-align: center;
+}
+
+.proposed-container {
+    margin: 3rem auto;
 }
 
 .results-container {
