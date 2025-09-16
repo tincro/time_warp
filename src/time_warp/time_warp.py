@@ -64,6 +64,7 @@ def zoneBuilder(list) -> dict[str, ZoneInfo]:
 
     return zones
 
+
 def processLocationString(string) -> str:
     """Cleanup common location formats from data."""
     loc_str = parseLocation(string)
@@ -78,10 +79,11 @@ def parseLocation(zone) -> str:
     
     return loc
 
+
 def cleanSpace(string, reverse=False) -> str:
-    """Helper method to cleanup spacing in string."""
+    """Helper method to cleanup spacing in string, if any. Reverse functionality supported."""
     loc = string
-    if not reverse:
+    if reverse:
         if " " in loc:
             loc = loc.replace(" ", "_")
             return loc
@@ -248,7 +250,8 @@ def getZones(zoneList: list[str], dateObj: datetime, info=ZONES_INFO) -> dict[st
         try:
             results.update({zone: timeZone(dateObj, zones[zone])})
         except KeyError:
-            new_zones = getNewZonesFromSearch(zone)
+            zone_clean = cleanSpace(zone, reverse=True)
+            new_zones = getNewZonesFromSearch(zone_clean)
             results.update({zone: timeZone(dateObj,new_zones[zone])})
 
     return results
