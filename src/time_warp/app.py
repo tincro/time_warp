@@ -33,11 +33,16 @@ def timezones():
     else:
          return render_template("/timezones.html")
     
+    
 @app.route("/search.html")
 def search():
      zones = time_warp.getSupportedZones()
      query = request.args.get("q")
-     options = time_warp.getNewZonesFromSearch(query)
+     # Check against being empty query, otherwise will return every timezone on Earth.
+     if query:
+        options = time_warp.getNewZonesFromSearch(query)
+     else:
+        options = {}
 
      return render_template("search.html", zones=zones, others=options, q=query)
 

@@ -38,8 +38,8 @@
                             <label for="loc-{{ zone | lower }}">{{ zone }}</label>
                         </div>
                     {% endfor %}
-                    <div>
-                        <p>{{ q }}</p>
+                    <div class="input-container">
+                        <p>Search: {{ q | e }}</p>
                         {% for zone in others.keys() %}
                         <div class="loc-item">
                             <input id="loc-{{ zone | lower }}" name="loc-{{ zone | lower }}" type="checkbox" value="{{ zone }}">
