@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request
+from flask import Flask, render_template, request
 import time_warp
 
 app = Flask(__name__)
@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-        zones = time_warp.getSupportedZones()
-        return render_template("index.html", zones=zones)
+    zones = time_warp.getSupportedZones()
+    return render_template("index.html", zones=zones)
 
 
 @app.route("/timezones.html", methods=['GET', 'POST'])
@@ -32,4 +32,12 @@ def timezones():
         return render_template("timezones.html", play=play_dict, zones=zones)
     else:
          return render_template("/timezones.html")
+    
+@app.route("/search.html")
+def search():
+     zones = time_warp.getSupportedZones()
+     query = request.args.get("q")
+     options = time_warp.getNewZonesFromSearch(query)
+
+     return render_template("search.html", zones=zones, others=options, q=query)
     

@@ -21,6 +21,7 @@ body {
 
 fieldset {
     border: none;
+    display: inline-block;
 }
 
 footer {

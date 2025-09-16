@@ -56,28 +56,44 @@ def searchTimeZone(zoneStr) -> list[str]:
     return zone_list
 
 
-def zoneBuilder(list) -> dict:
+def zoneBuilder(list) -> dict[str, ZoneInfo]:
     """Build ZoneInfo objects from list"""
     zones = {}
     for loc in list:
-        zones.update({parseLocation(loc): ZoneInfo(loc)})
+        zones.update({processLocationString(loc): ZoneInfo(loc)})
 
     return zones
 
+def processLocationString(string) -> str:
+    """Cleanup common location formats from data."""
+    loc_str = parseLocation(string)
+    final_loc_str = cleanSpace(loc_str)
+    return final_loc_str
 
-def parseLocation(zone):
+
+def parseLocation(zone) -> str:
     """Helper method to get location from timezones"""
     location_list = zone.split('/')
     loc = location_list[-1]
     
+    return loc
+
+def cleanSpace(string, reverse=False) -> str:
+    """Helper method to cleanup spacing in string."""
+    loc = string
+    if not reverse:
+        if " " in loc:
+            loc = loc.replace(" ", "_")
+            return loc
+        
     if "_" in loc:
         loc = loc.replace("_", " ")
-    
+
     return loc
     
 
 # Main methods
-def getTimeToPlay():
+def getTimeToPlay() -> dict:
     """Get user input on time to play"""
     print("What day are we playing?: -->")
     play = {}
@@ -89,21 +105,21 @@ def getTimeToPlay():
     return play
     
 
-def getDayFromUser():
+def getDayFromUser() -> int:
     """Get day from user."""
     msg = "Enter day of month to play: "
     day = input(msg)
     return int(day)
 
 
-def getHourFromUser():
+def getHourFromUser() -> int:
     """Get Hour from user."""
     msg = "Enter hour of day to play: "
     hour = input(msg)
     return int(hour)
 
 
-def getMinuteFromUser():
+def getMinuteFromUser() -> int:
     """Get minute from user."""
     msg = "Enter minute of hour, if any. If none press Enter: "
     minute = input(msg)
@@ -218,20 +234,33 @@ def printZones(zoneList: list[str], dateObj: datetime, zoneDict: dict):
                 print("No Time Zone Info Found.")
 
 
-def getSupportedZones():
+def getSupportedZones() -> list[str]:
     """Return sorted list of supported time zones."""
     copy = APP_ZONES.copy()
     return sorted(copy)
 
 
-def getZones(zoneList: list[str], dateObj: datetime) -> dict:
+def getZones(zoneList: list[str], dateObj: datetime, info=ZONES_INFO) -> dict[str, str]:
     """Return a dictionary holding the results of the required time zone translation."""
-    zones = zoneBuilder(ZONES_INFO)
+    zones = zoneBuilder(info)
     results = {}
     for zone in zoneList:
-        results.update({zone: timeZone(dateObj, zones[zone])})
+        try:
+            results.update({zone: timeZone(dateObj, zones[zone])})
+        except KeyError:
+            new_zones = getNewZonesFromSearch(zone)
+            results.update({zone: timeZone(dateObj,new_zones[zone])})
 
     return results
+
+
+def getNewZonesFromSearch(queryStr):
+    """Get new zones based on query search."""
+    query = searchTimeZone(queryStr)
+    zones = zoneBuilder(query)
+
+    return zones
+    
 
 # Run the script
 if __name__ == "__main__":

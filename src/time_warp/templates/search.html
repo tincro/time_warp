@@ -1,4 +1,5 @@
-{% extends "layout.html" %}
+{% extends "index.html" %}
+
 
 {% block title %}
     Time Warp | Welcome!
@@ -18,14 +19,14 @@
 
         <div class="form-container center">
 
-            <form action="search.html" method="get">
+            <!-- <form action="index.html" method="get">
 
                 <div class="input-container">
                     <label for="zone-search">Search other zone:</label>
-                    <input type="search" id="zone-search" name="q">
+                    <input type="search" id="zone-search" name="other">
                     <button type="submit" class="btn">Search</button>
                 </div>
-            </form>
+            </form> -->
 
             <form action="timezones.html" method="post" target="_blank">
                 <div class="input-container">
@@ -37,6 +38,16 @@
                             <label for="loc-{{ zone | lower }}">{{ zone }}</label>
                         </div>
                     {% endfor %}
+                    <div>
+                        <p>{{ q }}</p>
+                        {% for zone in others.keys() %}
+                        <div class="loc-item">
+                            <input id="loc-{{ zone | lower }}" name="loc-{{ zone | lower }}" type="checkbox" value="{{ zone }}">
+                            <label for="loc-{{ zone | lower }}">{{ zone }}</label>
+                        </div>
+                    {% endfor %}
+
+                    </div>
                 </fieldset>
                 </div>
 
