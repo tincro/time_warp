@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-        return render_template("index.html")
+        zones = time_warp.getSupportedZones()
+        return render_template("index.html", zones=zones)
 
 
 @app.route("/timezones.html", methods=['GET', 'POST'])

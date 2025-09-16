@@ -106,6 +106,7 @@ p {
 
 .results-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -113,6 +114,7 @@ p {
     display: inline-block;
     max-width: 100%;
     min-width: 25%;
+    padding: 10px;
 }
 
 .results-item:last-child {

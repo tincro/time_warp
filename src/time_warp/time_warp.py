@@ -23,7 +23,7 @@ APP_ZONES = [
         "Indianapolis",
         "Chicago",
         "Montreal",
-        "NYC",
+        "New York",
         "Adelaide",
         "Melbourne",
         "Vancouver"

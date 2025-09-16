@@ -21,7 +21,7 @@
                 <div class="input-container">
                 <fieldset>
                     <legend>Time Zones</legend>
-                    <div class="loc-item">
+                    <!-- <div class="loc-item">
 
                         <input id="loc-montreal" name="loc-montreal" type="checkbox" value="Montreal">
                         <label for="loc-montreal">Montreal</label>
@@ -40,7 +40,14 @@
 
                         <input id="loc-nyc" name="loc-nyc" type="checkbox" value="New York">
                         <label for="loc-nyc">New York City</label>
-                    </div>
+                    </div> -->
+
+                    {% for zone in zones %}
+                        <div class="loc-item">
+                            <input id="loc-{{ zone | lower }}" name="loc-{{ zone | lower }}" type="checkbox" value="{{ zone }}">
+                            <label for="loc-{{ zone | lower }}">{{ zone }}</label>
+                        </div>
+                    {% endfor %}
                 </fieldset>
                 </div>
 
