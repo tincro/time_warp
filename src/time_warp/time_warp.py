@@ -170,7 +170,6 @@ def getTimeFromStr(timeStr) -> dict:
     return time_dict
 
 
-
 def getDate(info: dict) -> datetime:
     "Return a new date object from info."
     day = info.get("day")

@@ -86,15 +86,13 @@ p {
     text-transform: uppercase;
     font-weight: 800;
 }
-.loc-item {
-    /* display: flexbox; */
-}
+
 .loc-item input, .loc-item label {
     display: inline-block;
     width: inherit;
 }
 
-.main-content {
+.main-content, .proposed-container {
     width: 50%;
 }
 
@@ -103,15 +101,14 @@ p {
 }
 
 .results-container {
-    display: flexbox;
+    display: flex;
     justify-content: center;
 }
 
 .results-item {
     display: inline-block;
-    flex-direction: row;
     max-width: 100%;
-    min-width: 30%;
+    min-width: 25%;
 }
 
 .results-item:last-child {
