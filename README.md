@@ -21,13 +21,13 @@ We can never remember what time it is for everyone, so I decided to solve that p
  and controls the data passed into each endpoint in the application. This module talks to the
  logic for the time zones and connects it with the information presented to the user.
 
- - [templates/404.html](templates/404.html): Holds the 404 markup.
- - [templates/index.html](templates/index.html): This is the markup for the entry point into the program.
- - [templates/layout.html](templates/layout.html): This is the base design for the html for the app.
- - [templates/search.html](templates/search.html): This is the markup for the search results page.
- - [templates/timezones.html](templates/timezones.html): This is the final page of the application, where the results to the request
+ - [templates/404.html](src/time_warp/templates/404.html): Holds the 404 markup.
+ - [templates/index.html](src/time_warp/templates/index.html): This is the markup for the entry point into the program.
+ - [templates/layout.html](src/time_warp/templates/layout.html): This is the base design for the html for the app.
+ - [templates/search.html](src/time_warp/templates/search.html): This is the markup for the search results page.
+ - [templates/timezones.html](src/time_warp/templates/timezones.html): This is the final page of the application, where the results to the request
  will appear.
- - [static/style.css](static/style.css): This holds the style to the app.
+ - [static/style.css](src/time_warp/static/style.css): This holds the style to the app.
 
  #### Design Choices:
  I was originally going to keep it minimal to just the locations I needed, but as I worked on the
