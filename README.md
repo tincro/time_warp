@@ -12,12 +12,12 @@ live in different time zones, even across the world.
 We can never remember what time it is for everyone, so I decided to solve that problem!
 
 #### Software:
- - time_warp.py: This is the core logic for the time zone translation. It uses the standard
+ - [time_warp.py](src/time_warp/time_warp.py): This is the core logic for the time zone translation. It uses the standard
  library in Python to take a given input for a designated time, in which when you input what
  time zones you want, it will output the respective time zone for that initial designated time. There are some preset time zones from North America and Australia, but has the capability to do 
  a quick search for a not-listed time zone that you would like to translate.
 
- - app.py: This is the Flask application entry point. This holds the routing for the application
+ - [app.py](src/time_warp/app.py): This is the Flask application entry point. This holds the routing for the application
  and controls the data passed into each endpoint in the application. This module talks to the
  logic for the time zones and connects it with the information presented to the user.
 
